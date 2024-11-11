@@ -17,4 +17,5 @@ export const verifyToken = (req:NextRequest) =>{
         }
     });
 }
+export const register = (username:string ,email:string, password:string) => api.post('/api/register', {username, email, password});
 export default api

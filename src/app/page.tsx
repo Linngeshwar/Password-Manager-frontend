@@ -1,6 +1,8 @@
 import React from 'react';
-export default function Home() {
-  
-return(<>
-</>)
+import LandingPage from '@/components/LandingPage';
+
+export default function Home() {  
+    return(<>
+        <LandingPage />
+    </>)
 }

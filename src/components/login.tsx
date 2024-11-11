@@ -16,9 +16,12 @@ function Login(){
           if(response.status === 200){
             const data = await response.data;
             console.log(data);
+            if(!data.error){
+                window.location.href = "/dashboard";
+            }
           }
         }catch(e){
-          console.error(e);
+          console.error(e); 
         }
       }
     
