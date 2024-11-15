@@ -12,6 +12,24 @@ function Register(){
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        if(!username ){
+          console.log("Please enter a username");
+          return;
+        }
+        if(!email){
+          console.log("Please enter an email");
+          return;
+        }
+        if(!password){
+          console.log("Please enter a password");
+          return;
+        }
+        if(password !== confirmPassword){
+          console.log("Passwords do not match");
+          return;
+        }
+
         try{
           const response  = await register(username, email, password);
           if(response.status === 200){

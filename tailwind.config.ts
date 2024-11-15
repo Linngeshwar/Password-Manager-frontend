@@ -12,6 +12,10 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        'instrument': ['"Instrument Serif"', 'serif'],
+        'press-start': ['"Press Start 2P"', 'cursive'],
+      },
     },
   },
   plugins: [],

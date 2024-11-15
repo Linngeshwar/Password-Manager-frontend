@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
 
 
@@ -15,7 +15,12 @@ export default function RootLayout({
 }>) {   
   return (
     <html lang="en">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"></link>
+      </head>
       <body>
+        <CustomCursor />
         {children}
       </body>
     </html>

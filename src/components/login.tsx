@@ -12,6 +12,16 @@ function Login(){
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try{
+
+          if(!username ){
+            console.log("Please enter a username");
+            return;
+          }
+          if(!password){
+            console.log("Please enter a password");
+            return;
+          }
+
           const response  = await login(username, password);
           if(response.status === 200){
             const data = await response.data;
