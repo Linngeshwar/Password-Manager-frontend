@@ -1,8 +1,13 @@
 import { NextRequest } from "next/server";
 import { verifyToken } from "./api";
 export const getAuth = async (req:NextRequest) => {
-    const verify = await verifyToken(req);
-    const data = await verify.data;
-    return data;
+    try{
+        const verify = await verifyToken(req);
+        // console.log(verify);
+        const data = await verify.data;
+        return data;
+    }catch(e){
+        return {error: true};
+    }
 }
 export default getAuth;
