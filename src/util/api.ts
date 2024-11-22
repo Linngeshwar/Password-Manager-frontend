@@ -18,4 +18,5 @@ export const verifyToken = (req:NextRequest) =>{
     });
 }
 export const register = (username:string ,email:string, password:string) => api.post('/api/register', {username, email, password});
+export const credentialsFetch = () => api.post('/api/credential/fetchall');
 export default api
