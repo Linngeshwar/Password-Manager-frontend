@@ -11,7 +11,7 @@ export default function CoolSlidingAnimation(){
             {/* Sliding overlay */}
             {index === 6 ? (
               <>
-                <div id="black-bar" className="absolute inset-0 bg-black" />
+                {/* <div id="black-bar" className="absolute inset-0 bg-black" /> */}
               </>
             ) : (
               <>

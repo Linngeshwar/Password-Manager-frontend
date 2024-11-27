@@ -106,6 +106,33 @@ const config: Config = {
             transform: 'translate(0,0)',
             opacity: "1",
           },
+        },"zoom-in": {
+          '0%':{
+            transform: 'scale(0)',
+            opacity: "0",
+          },
+          '100%':{
+            transform: 'scale(1)',
+            opacity: "1",
+          }
+        },"scaling-x" : {
+          '0%':{
+            width: "0",
+            opacity: "0",
+          },
+          '100%':{
+            width: '100%',
+            opacity: "1",
+          }
+        },"typewriter": {
+          '0%':{
+            width: "0",
+            opacity: "0",
+          },
+          '100%':{
+            width: '100%',
+            opacity: "1",
+          }
         }
       },
       colors: {
@@ -119,6 +146,9 @@ const config: Config = {
       animation: {
         "small-pulse": "small-pulse 2s infinite",
         "glitch": "glitch 2s infinite",
+        "zoom-in": "zoom-in 1s ease-in-out",
+        "scaling-x": "scaling-x 1s ease-in-out",
+        "typewriter": "typewriter 1s ease-in-out",
       },
     },
   },
