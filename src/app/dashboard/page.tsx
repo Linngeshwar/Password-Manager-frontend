@@ -46,6 +46,7 @@ export default function dashboard(){
                         style={{cursor:"none"}} 
                         placeholder="Website" 
                         spellCheck="false" 
+                        autoComplete="off"
                         className="font-press-start bg-transparent h-9 text-white border-white rounded-md border-[3px] p-1 focus:outline-none
                         focus:shadow-md focus:shadow-white transition-all duration-400 ease-in-out"
                     />
@@ -54,6 +55,7 @@ export default function dashboard(){
                         style={{cursor:"none"}} 
                         placeholder="Username" 
                         spellCheck="false" 
+                        autoComplete="off"
                         className="font-press-start bg-transparent h-9 text-white border-white rounded-md border-[3px] p-1 focus:outline-none
                         focus:shadow-md focus:shadow-white transition-all duration-400 ease-in-out"
                     />
@@ -62,6 +64,7 @@ export default function dashboard(){
                         style={{cursor:"none"}}
                         placeholder="Password" 
                         spellCheck="false" 
+                        autoComplete="off"
                         className="font-press-start bg-transparent h-9 text-white border-white rounded-md border-[3px] p-1 focus:outline-none
                         focus:shadow-md focus:shadow-white transition-all duration-400 ease-in-out"
                     />
