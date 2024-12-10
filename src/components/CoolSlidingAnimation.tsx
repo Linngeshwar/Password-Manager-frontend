@@ -13,7 +13,25 @@ export default function CoolSlidingAnimation(){
               <>
                 {/* <div id="black-bar" className="absolute inset-0 bg-black" /> */}
               </>
-            ) : (
+            ) 
+            // : index===1 ? (<>
+            //     <div 
+            //       id="white-bar"
+            //       className="absolute inset-0 bg-white text-black transform translate-x-full transition-transform duration-700 ease-in-out group-hover:translate-x-0 "
+            //     >
+            //       <div className="flex flex-col place-self-center justify-center p-2">
+            //         <span className="place-self-center font-press-start">H</span>
+            //         <span className="place-self-center font-press-start">O</span>
+            //         <span className="place-self-center font-press-start">M</span>
+            //         <span className="place-self-center font-press-start ">E</span>
+            //       </div>
+            //     </div>
+            //     <div 
+            //       id="black-bar" 
+            //       className="absolute inset-0 bg-black w-[10px] -translate-x-full -translate-y-full transition-transform duration-700 ease-in-out group-hover:translate-y-0"
+            //     />
+            // </>) 
+            : (
               <>
                 <div 
                   id="white-bar"

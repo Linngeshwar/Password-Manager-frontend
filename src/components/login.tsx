@@ -55,7 +55,7 @@ function Login(){
         <div className="flex flex-col align-middle items-start justify-start w-full">
           <input style={{cursor:"none"}} type="password" placeholder="password" id="password" onChange={(e) => setPassword(e.target.value)} 
           className="mb-2 p-2 text-white w-full bg-black border-[3px] border-white rounded-md font-press-start focus:shadow-md 
-          focus:shadow-white focus:outline-none transition-all duration-400 ease-in-out" /> 
+          focus:shadow-white focus:outline-none transition-all duration-400 ease-in-out"></input>  
         </div>
         <button style={{cursor:"none"}} id="hoverable" type="submit" className="font-press-start mx-[1rem] mt-[1rem] py-[0.5rem] px-[2rem] justify-end border-2 focus:outline-none border-white rounded-md transition-all duration-300 ease-in-out hover:scale-110  hover:bg-white hover:text-black">Login</button>
           </form>

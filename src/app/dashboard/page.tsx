@@ -5,8 +5,11 @@ import WebsiteCredential from "@/components/WebsiteCredential";
 import { credentialsFetch } from "@/util/api";
 import CoolSlidingAnimation from "@/components/CoolSlidingAnimation";
 import { addCredentials } from "@/util/api";
+import { generateCredentials } from "@/util/api";
 import { useEffect } from "react";
 import {AnimatePresence, motion} from "framer-motion";
+import { FaXmark } from "react-icons/fa6";
+import Logout from "@/components/logout";
 
 export default function dashboard(){
 
@@ -25,19 +28,32 @@ export default function dashboard(){
     }
 
     const add = () => {
+        const handleGenerate = async () => {
+            const response = await generateCredentials(30);
+            const data = response.data;
+            const password = data.password;
+            const passwordInput = document.querySelector('input[name="password"]') as HTMLInputElement;
+            if (passwordInput) {
+                passwordInput.value = password;
+            }
+        }
         return(
             <>
-                <motion.form className="flex flex-col gap-4 items-center justify-center align-middle"
+                <motion.div
                     exit={{y: "-100%", opacity: 0}}
                     initial={{y: "-100%", opacity: 0}}
                     animate={{y: 0, opacity: 1}}
                     transition={{duration: 0.75}}
+                    className="pb-3"
+                >
+                <form className="flex flex-col gap-4 items-center justify-center align-middle"
                     onSubmit={(e) => {
                         e.preventDefault();
                         const form = e.target as HTMLFormElement;
                         const website = (form.elements.namedItem('website') as HTMLInputElement).value;
                         const username = (form.elements.namedItem('username') as HTMLInputElement).value;
                         const password = (form.elements.namedItem('password') as HTMLInputElement).value;
+                        console.log(username, website, password);
                         handleAddCredentials(username, website, password);
                     }}
                 >
@@ -71,12 +87,23 @@ export default function dashboard(){
                     <button 
                         style={{cursor:"none"}} 
                         type="submit"
+                        id="hoverable"
                         className="px-10 py-2 flex flex-row border-white border-[3px] rounded-lg  hover:scale-110 hover:bg-white hover:text-black 
-                        focus:outline-none focus:shadow-md place-self-center focus:shadow-white transition-all duration-300 ease-in-out"
+                        focus:outline-none focus:shadow-md place-self-center font-press-start  focus:shadow-white transition-all duration-300 ease-in-out"
                     >
-                        <p className="font-press-start place-self-end">ADD</p>
+                        ADD
                     </button>
-                </motion.form>
+                </form>
+                <button
+                    style={{cursor:"none"}} 
+                    id="hoverable"
+                    className="px-10 py-1 mt-2 flex flex-row border-white border-[3px] rounded-lg  hover:scale-110 hover:bg-white hover:text-black 
+                    focus:outline-none focus:shadow-md place-self-center font-press-start focus:shadow-white transition-all duration-300 ease-in-out"
+                    onClick={handleGenerate}
+                >
+                    GENERATE PASSWORD
+                </button>
+                </motion.div>
             </>
         )
     }
@@ -129,13 +156,30 @@ export default function dashboard(){
                 </AnimatePresence>
                 <button 
                     style={{cursor:"none"}} 
-                    id="invis"
+                    id="hoverable"
                     className="px-10 py-2 flex flex-row border-white border-[3px] rounded-lg  hover:scale-110 hover:bg-white hover:text-black 
-                    focus:outline-none focus:shadow-md place-self-start focus:shadow-white transition-all duration-300 ease-in-out invis" 
+                    focus:outline-none focus:shadow-md place-self-start font-press-start focus:shadow-white transition-all duration-300 ease-in-out invis" 
                     onClick={toggleAdd}
                 >
-                    <p className="font-press-start place-self-end">ADD</p>
-                </button>        
+                    ADD
+                </button> 
+                <Logout />
+                <AnimatePresence>
+                    {isAdd && (
+                        <motion.button 
+                            style={{cursor:"none",}} 
+                            id="invis"
+                            className="absolute border-white border-[3px] rounded-lg p-2 hover:scale-110 hover:bg-white hover:text-black 
+                            focus:outline-none focus:shadow-md focus:shadow-white transition-all duration-300 ease-in-out invis" 
+                            onClick={toggleAdd}
+                            initial={{ opacity: 0,y: "-100%" }}
+                            animate={{ opacity: 1,y: 0 }}
+                            exit={{ opacity: 0,y: "-100%" }}
+                        >
+                            <FaXmark className="color-change"/>
+                        </motion.button>
+                    )}
+                </AnimatePresence>
                 <div className="flex flex-col items-center justify-center align-middle">
                     {credentials.map((credential,key) => {
                         return (<WebsiteCredential 
